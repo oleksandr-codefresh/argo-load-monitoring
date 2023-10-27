@@ -9,7 +9,7 @@ spec:
  source:
    path: notifications
    repoURL: https://github.com/oleksandr-codefresh/argo-load-monitoring
-   targetRevision: maim
+   targetRevision: main
  destination:
    name: in-cluster
    namespace: argo-load
