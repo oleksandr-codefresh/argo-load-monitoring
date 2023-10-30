@@ -7,7 +7,7 @@ metadata:
 spec:
  project: default
  source:
-   path: notifications
+   path: service-monitors
    repoURL: https://github.com/oleksandr-codefresh/argo-load-monitoring
    targetRevision: main
  destination:
@@ -16,7 +16,7 @@ spec:
  syncPolicy:
    automated:
      prune: true
-     selfHeal: false
+     selfHeal: true
      allowEmpty: true
    syncOptions:
      - PrunePropagationPolicy=foreground
