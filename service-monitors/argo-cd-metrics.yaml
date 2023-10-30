@@ -7,6 +7,11 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name: argocd-metrics
+      # app.kubernetes.io/name: argocd-metrics
+      app.kubernetes.io/name: argocd-applicationset-controller
+      # app.kubernetes.io/component: applicationset-controller
+  namespaceSelector:
+    matchNames:
+    - argo-load
   endpoints:
   - port: metrics

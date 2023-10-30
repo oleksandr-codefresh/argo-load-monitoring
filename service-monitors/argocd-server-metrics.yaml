@@ -8,5 +8,8 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: argocd-server-metrics
+  namespaceSelector:
+    matchNames:
+    - argo-load
   endpoints:
   - port: metrics
