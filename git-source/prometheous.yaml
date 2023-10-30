@@ -9,20 +9,20 @@ spec:
     repoURL: https://prometheus-community.github.io/helm-charts
     targetRevision: 52.1.0
     chart: kube-prometheus-stack
-destination:
-  server: https://kubernetes.default.svc
-  namespace: prometheus
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prometheus
   syncPolicy:
-   automated:
-     prune: true
-     selfHeal: false
-     allowEmpty: true
-   syncOptions:
-     - PrunePropagationPolicy=foreground
-     - Replace=false
-     - PruneLast=false
-     - Validate=true
-     - CreateNamespace=true
-     - ApplyOutOfSyncOnly=false
-     - ServerSideApply=true
-     - RespectIgnoreDifferences=false
+    automated:
+      prune: true
+      selfHeal: false
+      allowEmpty: true
+    syncOptions:
+      - PrunePropagationPolicy=foreground
+      - Replace=false
+      - PruneLast=false
+      - Validate=true
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=false
+      - ServerSideApply=true
+      - RespectIgnoreDifferences=false
