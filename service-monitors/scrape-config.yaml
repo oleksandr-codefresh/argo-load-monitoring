@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: scrape-config-rollouts
+  labels:
+    release: prometheus
+spec:
+  staticConfigs:
+    - labels:
+        job: prometheus
+        source: argo-rollouts
+      scrapeInterval: 30s
+      targets:
+      - acecf899ece79449d8788726105fce71-336091674.us-east-1.elb.amazonaws.com
+      - af61b41ff6f0d4736a020e4582bcdb38-244308514.us-east-1.elb.amazonaws.com
