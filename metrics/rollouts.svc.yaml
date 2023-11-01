@@ -10,7 +10,6 @@ spec:
   type: LoadBalancer
   ports:
   - name: metrics
-    nodePort: 8090
     port: 8090
     protocol: TCP
     targetPort: 8090
