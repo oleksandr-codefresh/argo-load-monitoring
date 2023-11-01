@@ -6,7 +6,7 @@ metadata:
     release: prometheus
 spec:
   scrapeInterval: 30s
-  kubernetesSdConfigs:
+  kubernetesSDConfigs:
     - role: pod
       selectors:
       - role: pod
