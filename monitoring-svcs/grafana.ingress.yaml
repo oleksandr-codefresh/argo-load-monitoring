@@ -11,7 +11,7 @@ spec:
   - host: argo-load.cd-team.cf-cd.com
     http:
       paths:
-      - path: /grafana
+      - path: /
         pathType: Prefix
         backend:
           service:
