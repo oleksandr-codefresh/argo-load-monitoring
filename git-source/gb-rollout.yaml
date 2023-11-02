@@ -7,9 +7,9 @@ metadata:
 spec:
   project: default
   source:
-    path: guestbooks/guestbook-rollout
-    repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
-    targetRevision: personal-eks
+    path: apps-chart
+    repoURL: https://github.com/yaroslav-codefresh/scale-test.git
+    targetRevision: HEAD
   destination:
     name: scale-test
     namespace: gb-rollout
