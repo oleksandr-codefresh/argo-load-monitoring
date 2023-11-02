@@ -7,9 +7,9 @@ metadata:
 spec:
   project: default
   source:
-    path: apps-chart
-    repoURL: https://github.com/yaroslav-codefresh/scale-test.git
-    targetRevision: HEAD
+    path: helm-guestbook
+    repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
+    targetRevision: personal-eks
   destination:
     name: scale-test
     namespace: gb-rollout
