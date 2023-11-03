@@ -6,7 +6,7 @@ metadata:
     release: prometheus
 spec:
   selector:
-    matchExpression:
+    matchExpressions:
       - key: controller
         operator: in
         values:
