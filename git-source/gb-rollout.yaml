@@ -11,7 +11,7 @@ spec:
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
   destination:
-    name: scale-prod
+    name: scale-test
     namespace: gb-rollout
   syncPolicy:
     automated:
