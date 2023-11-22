@@ -7,16 +7,16 @@ metadata:
 spec:
   project: default
   source:
-    path: guestbooks/guestbook-rollout
+    path: guestbooks/guestbook-rollout1
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
   destination:
     name: scale-prod
     namespace: gb-rollout
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+    # automated:
+    #   prune: true
+    #   selfHeal: true
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
