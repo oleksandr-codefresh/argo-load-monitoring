@@ -13,3 +13,8 @@ spec:
       targets:
       - acecf899ece79449d8788726105fce71-336091674.us-east-1.elb.amazonaws.com:8090
       - af61b41ff6f0d4736a020e4582bcdb38-244308514.us-east-1.elb.amazonaws.com:8090
+    - labels:
+        job: prometheus
+        source: cf-event-reporter
+      targets:
+      - 712e1a77678c.ngrok.app
