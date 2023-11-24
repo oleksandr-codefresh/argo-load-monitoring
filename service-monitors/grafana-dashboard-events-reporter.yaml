@@ -27,6 +27,7 @@ data:
     "panels": [
         {
         "datasource": {
+            "type": "prometheus",
             "uid": "$datasource"
         },
         "fieldConfig": {
@@ -91,10 +92,16 @@ data:
             "datasource": {
                 "uid": "$datasource"
             },
-            "expr": "time() - max(process_start_time_seconds{source=\"argo-rollouts\"})",
+            "disableTextWrap": false,
+            "editorMode": "builder",
+            "expr": "time() - max(process_start_time_seconds{source=\"cf-event-reporter\"})",
             "format": "time_series",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
             "intervalFactor": 1,
-            "refId": "A"
+            "range": true,
+            "refId": "A",
+            "useBackend": false
             }
         ],
         "title": "Uptime (controller)",
@@ -352,7 +359,7 @@ data:
                 "uid": "$datasource"
             },
             "disableTextWrap": false,
-            "editorMode": "builder",
+            "editorMode": "code",
             "expr": "sum by(error_type) (increase(cf_e_reporter_errored_events{source=\"cf-event-reporter\"}[10m]))",
             "format": "time_series",
             "fullMetaSearch": false,
@@ -365,7 +372,7 @@ data:
         ],
         "thresholds": [],
         "timeRegions": [],
-        "title": "Errored application events",
+        "title": "Errored events",
         "tooltip": {
             "shared": true,
             "sort": 0,
@@ -1256,8 +1263,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                 {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                 },
                 {
                     "color": "red",
@@ -1331,8 +1337,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                 {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                 },
                 {
                     "color": "red",
@@ -1396,8 +1401,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                 {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                 },
                 {
                     "color": "red",
@@ -1461,8 +1465,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                 {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                 },
                 {
                     "color": "red",
@@ -1635,7 +1638,7 @@ data:
     "timezone": "",
     "title": "Codefresh argo-cd events reporter (v2)",
     "uid": "ad481a71-3b8b-4c2b-882f-5c1e6315d152",
-    "version": 6,
+    "version": 7,
     "weekStart": ""
     }
 kind: ConfigMap
