@@ -988,7 +988,7 @@ data:
                         ],
                         "timeFrom": null,
                         "timeShift": null,
-                        "title": "Resource event handling duration (seconds)",
+                        "title": "Reconciliation Performance",
                         "tooltip": {
                             "show": true,
                             "showHistogram": false
@@ -1498,7 +1498,7 @@ data:
             ]
         },
         "timezone": "",
-        "title": "Codefresh event reporter",
+        "title": "Events reporter",
         "uid": "8zNpieqik",
         "version": 1
     }
