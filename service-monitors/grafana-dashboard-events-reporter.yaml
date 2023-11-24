@@ -912,6 +912,98 @@ data:
         }
         },
         {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+            "type": "prometheus",
+            "uid": "$datasource"
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+            "h": 6,
+            "w": 24,
+            "x": 0,
+            "y": 49
+        },
+        "hiddenSeries": false,
+        "id": 46,
+        "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "links": [],
+        "nullPointMode": "null",
+        "options": {
+            "alertThreshold": true
+        },
+        "paceLength": 10,
+        "percentage": false,
+        "pluginVersion": "10.1.5",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+            {
+            "datasource": {
+                "uid": "$datasource"
+            },
+            "disableTextWrap": false,
+            "editorMode": "code",
+            "expr": "go_threads{source=\"cf-event-reporter\"}",
+            "format": "time_series",
+            "fullMetaSearch": false,
+            "includeNullMetadata": true,
+            "intervalFactor": 1,
+            "range": true,
+            "refId": "A",
+            "useBackend": false
+            }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Number of OS threads created",
+        "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+            "mode": "time",
+            "show": true,
+            "values": []
+        },
+        "yaxes": [
+            {
+            "format": "short",
+            "logBase": 1,
+            "show": true
+            },
+            {
+            "format": "short",
+            "logBase": 1,
+            "show": true
+            }
+        ],
+        "yaxis": {
+            "align": false
+        }
+        },
+        {
         "collapsed": false,
         "datasource": {
             "uid": "$datasource"
@@ -920,7 +1012,7 @@ data:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 49
+            "y": 55
         },
         "id": 32,
         "panels": [],
@@ -973,7 +1065,7 @@ data:
             "h": 5,
             "w": 4,
             "x": 0,
-            "y": 50
+            "y": 56
         },
         "id": 42,
         "options": {
@@ -1048,7 +1140,7 @@ data:
             "h": 5,
             "w": 4,
             "x": 4,
-            "y": 50
+            "y": 56
         },
         "id": 37,
         "options": {
@@ -1113,7 +1205,7 @@ data:
             "h": 5,
             "w": 4,
             "x": 8,
-            "y": 50
+            "y": 56
         },
         "id": 35,
         "options": {
@@ -1178,7 +1270,7 @@ data:
             "h": 5,
             "w": 4,
             "x": 12,
-            "y": 50
+            "y": 56
         },
         "id": 38,
         "options": {
