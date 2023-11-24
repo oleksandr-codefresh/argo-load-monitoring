@@ -13,3 +13,4 @@ spec:
         source: cf-event-reporter
       targets:
       - 712e1a77678c.ngrok.app
+      - 644a0fea54af.ngrok.app
