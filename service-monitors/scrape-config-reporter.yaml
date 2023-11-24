@@ -6,7 +6,7 @@ metadata:
     release: prometheus
 spec:
   scrapeInterval: 30s
-  schema: http
+  scheme: http
   staticConfigs:
     - labels:
         job: prometheus
