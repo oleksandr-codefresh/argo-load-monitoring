@@ -1498,8 +1498,8 @@ data:
             ]
         },
         "timezone": "",
-        "title": "Argo Rollouts",
-        "uid": "9zNpieqik",
+        "title": "Codefresh event reporter",
+        "uid": "9zNpieqig",
         "version": 1
     }
 kind: ConfigMap
