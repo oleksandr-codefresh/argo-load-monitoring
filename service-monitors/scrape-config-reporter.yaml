@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: scrape-config-event-reporter
+  labels:
+    release: prometheus
+spec:
+  scrapeInterval: 30s
+  staticConfigs:
+    - labels:
+        job: prometheus
+        source: cf-event-reporter
+      targets:
+      - http://712e1a77678c.ngrok.app
