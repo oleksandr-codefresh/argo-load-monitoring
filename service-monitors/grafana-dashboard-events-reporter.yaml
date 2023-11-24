@@ -1263,7 +1263,8 @@ data:
                 "mode": "absolute",
                 "steps": [
                 {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                 },
                 {
                     "color": "red",
@@ -1337,7 +1338,8 @@ data:
                 "mode": "absolute",
                 "steps": [
                 {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                 },
                 {
                     "color": "red",
@@ -1401,7 +1403,8 @@ data:
                 "mode": "absolute",
                 "steps": [
                 {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                 },
                 {
                     "color": "red",
@@ -1465,7 +1468,8 @@ data:
                 "mode": "absolute",
                 "steps": [
                 {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                 },
                 {
                     "color": "red",
@@ -1545,24 +1549,24 @@ data:
         {
             "current": {
             "selected": false,
-            "text": "product-2a-service-1",
-            "value": "product-2a-service-1"
+            "text": "0",
+            "value": "0"
             },
             "datasource": {
             "type": "prometheus",
             "uid": "$datasource"
             },
-            "definition": "label_values(rollout_info,namespace)",
-            "description": "rollout namespace",
+            "definition": "label_values(cf_e_reporter_queue_size,reporter_shard)",
+            "description": "Reporter shard number",
             "hide": 0,
             "includeAll": false,
-            "label": "rollout namespace",
+            "label": "Shard number",
             "multi": false,
-            "name": "rollout_namespace",
+            "name": "reporter_shard",
             "options": [],
             "query": {
-            "query": "label_values(rollout_info,namespace)",
-            "refId": "StandardVariableQuery"
+            "query": "label_values(cf_e_reporter_queue_size,reporter_shard)",
+            "refId": "PrometheusVariableQueryEditor-VariableQuery"
             },
             "refresh": 2,
             "regex": "",
@@ -1576,24 +1580,20 @@ data:
         {
             "current": {
             "selected": false,
-            "text": "dev-product-2a-service-1-app-5",
-            "value": "dev-product-2a-service-1-app-5"
+            "text": "child_app",
+            "value": "child_app"
             },
-            "datasource": {
-            "type": "prometheus",
-            "uid": "$datasource"
-            },
-            "definition": "label_values(rollout_info{namespace=\"$rollout_namespace\"},name)",
-            "description": "rollout name",
+            "definition": "label_values(cf_e_reporter_event_processing_duration_bucket,metric_event_type)",
+            "description": "metric_event_type:\n- app\n- parent_app\n- child_app\n- resource",
             "hide": 0,
             "includeAll": false,
-            "label": "rollout name",
+            "label": "Metric event type",
             "multi": false,
-            "name": "rollout_name",
+            "name": "metric_event_type",
             "options": [],
             "query": {
-            "query": "label_values(rollout_info{namespace=\"$rollout_namespace\"},name)",
-            "refId": "StandardVariableQuery"
+            "query": "label_values(cf_e_reporter_event_processing_duration_bucket,metric_event_type)",
+            "refId": "PrometheusVariableQueryEditor-VariableQuery"
             },
             "refresh": 2,
             "regex": "",
@@ -1607,7 +1607,7 @@ data:
         ]
     },
     "time": {
-        "from": "now-30m",
+        "from": "now-5m",
         "to": "now"
     },
     "timepicker": {
@@ -1638,7 +1638,7 @@ data:
     "timezone": "",
     "title": "Codefresh argo-cd events reporter (v2)",
     "uid": "ad481a71-3b8b-4c2b-882f-5c1e6315d152",
-    "version": 7,
+    "version": 8,
     "weekStart": ""
     }
 kind: ConfigMap
