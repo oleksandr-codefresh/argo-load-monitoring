@@ -6,9 +6,10 @@ metadata:
     release: prometheus
 spec:
   scrapeInterval: 30s
+  schema: http
   staticConfigs:
     - labels:
         job: prometheus
         source: cf-event-reporter
       targets:
-      - http://712e1a77678c.ngrok.app
+      - 712e1a77678c.ngrok.app
