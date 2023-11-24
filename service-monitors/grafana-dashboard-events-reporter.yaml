@@ -1499,7 +1499,7 @@ data:
         },
         "timezone": "",
         "title": "Codefresh event reporter",
-        "uid": "9zNpieqig",
+        "uid": "9zNpieqik",
         "version": 1
     }
 kind: ConfigMap
