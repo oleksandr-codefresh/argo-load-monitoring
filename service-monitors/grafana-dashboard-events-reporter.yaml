@@ -979,7 +979,7 @@ data:
                         "reverseYBuckets": false,
                         "targets": [
                             {
-                                "expr": "sum by(le) (increase(cf_e_reporter_event_processing_duration_bucket{metric_event_type="resource"}[10m]))",
+                                "expr": "sum(increase(rollout_reconcile_bucket[10m])) by (le)",
                                 "format": "heatmap",
                                 "intervalFactor": 1,
                                 "legendFormat": "{{le}}",
@@ -1499,7 +1499,7 @@ data:
         },
         "timezone": "",
         "title": "Events reporter",
-        "uid": "8zNpieqik",
+        "uid": "ad481a71-3b8b-4c2b-882f-5c1e6315d152",
         "version": 1
     }
 kind: ConfigMap
