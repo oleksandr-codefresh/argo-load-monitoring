@@ -121,7 +121,7 @@ data:
                 }
             },
             {
-                "collapsed": false,
+                "collapsed": true,
                 "datasource": "$datasource",
                 "gridPos": {
                     "h": 1,
@@ -131,6 +131,656 @@ data:
                 },
                 "id": 4,
                 "panels": [
+                    {
+                        "cacheTimeout": null,
+                        "datasource": "$datasource",
+                        "fieldConfig": {
+                            "defaults": {
+                                "color": {
+                                    "mode": "thresholds"
+                                },
+                                "custom": {},
+                                "mappings": [
+                                    {
+                                        "id": 0,
+                                        "op": "=",
+                                        "text": "",
+                                        "type": 1,
+                                        "value": ""
+                                    }
+                                ],
+                                "thresholds": {
+                                    "mode": "absolute",
+                                    "steps": [
+                                        {
+                                            "color": "#d44a3a",
+                                            "value": null
+                                        },
+                                        {
+                                            "color": "rgba(237, 129, 40, 0.89)",
+                                            "value": 0
+                                        },
+                                        {
+                                            "color": "#629e51",
+                                            "value": 1
+                                        }
+                                    ]
+                                },
+                                "unit": "none"
+                            },
+                            "overrides": []
+                        },
+                        "gridPos": {
+                            "h": 3,
+                            "w": 4,
+                            "x": 0,
+                            "y": 5
+                        },
+                        "id": 18,
+                        "interval": null,
+                        "links": [],
+                        "maxDataPoints": 100,
+                        "options": {
+                            "colorMode": "value",
+                            "graphMode": "none",
+                            "justifyMode": "auto",
+                            "orientation": "auto",
+                            "reduceOptions": {
+                                "calcs": [
+                                    "lastNotNull"
+                                ],
+                                "fields": "",
+                                "values": false
+                            },
+                            "text": {},
+                            "textMode": "auto"
+                        },
+                        "pluginVersion": "7.4.3",
+                        "targets": [
+                            {
+                                "expr": "sum(rollout_info{phase=\"Completed\",source=\"argo-rollouts\"} == 1)",
+                                "format": "time_series",
+                                "hide": false,
+                                "instant": true,
+                                "interval": "",
+                                "intervalFactor": 1,
+                                "legendFormat": "",
+                                "refId": "A"
+                            }
+                        ],
+                        "title": "Stable",
+                        "type": "stat"
+                    },
+                    {
+                        "cacheTimeout": null,
+                        "datasource": "$datasource",
+                        "fieldConfig": {
+                            "defaults": {
+                                "color": {
+                                    "mode": "thresholds"
+                                },
+                                "custom": {},
+                                "mappings": [
+                                    {
+                                        "id": 0,
+                                        "op": "=",
+                                        "text": "0",
+                                        "type": 1,
+                                        "value": "null"
+                                    }
+                                ],
+                                "thresholds": {
+                                    "mode": "absolute",
+                                    "steps": [
+                                        {
+                                            "color": "#5794F2",
+                                            "value": null
+                                        },
+                                        {
+                                            "color": "#5794F2",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#5794F2",
+                                            "value": 3
+                                        }
+                                    ]
+                                },
+                                "unit": "none"
+                            },
+                            "overrides": []
+                        },
+                        "gridPos": {
+                            "h": 3,
+                            "w": 4,
+                            "x": 4,
+                            "y": 5
+                        },
+                        "id": 21,
+                        "interval": null,
+                        "links": [],
+                        "maxDataPoints": 100,
+                        "options": {
+                            "colorMode": "value",
+                            "graphMode": "area",
+                            "justifyMode": "auto",
+                            "orientation": "horizontal",
+                            "reduceOptions": {
+                                "calcs": [
+                                    "lastNotNull"
+                                ],
+                                "fields": "",
+                                "values": false
+                            },
+                            "text": {},
+                            "textMode": "auto"
+                        },
+                        "pluginVersion": "7.4.3",
+                        "targets": [
+                            {
+                                "expr": "sum(rollout_info{phase=\"Progressing\",source=\"argo-rollouts\"})",
+                                "format": "time_series",
+                                "hide": false,
+                                "instant": true,
+                                "interval": "",
+                                "intervalFactor": 1,
+                                "legendFormat": "",
+                                "refId": "A"
+                            }
+                        ],
+                        "title": "Progressing",
+                        "type": "stat"
+                    },
+                    {
+                        "cacheTimeout": null,
+                        "datasource": "$datasource",
+                        "fieldConfig": {
+                            "defaults": {
+                                "color": {
+                                    "mode": "thresholds"
+                                },
+                                "custom": {},
+                                "mappings": [
+                                    {
+                                        "id": 0,
+                                        "op": "=",
+                                        "text": "0",
+                                        "type": 1,
+                                        "value": "null"
+                                    }
+                                ],
+                                "thresholds": {
+                                    "mode": "absolute",
+                                    "steps": [
+                                        {
+                                            "color": "#5794F2",
+                                            "value": null
+                                        },
+                                        {
+                                            "color": "#5794F2",
+                                            "value": 1
+                                        },
+                                        {
+                                            "color": "#5794F2",
+                                            "value": 3
+                                        }
+                                    ]
+                                },
+                                "unit": "none"
+                            },
+                            "overrides": []
+                        },
+                        "gridPos": {
+                            "h": 3,
+                            "w": 4,
+                            "x": 8,
+                            "y": 5
+                        },
+                        "id": 43,
+                        "interval": null,
+                        "links": [],
+                        "maxDataPoints": 100,
+                        "options": {
+                            "colorMode": "value",
+                            "graphMode": "none",
+                            "justifyMode": "auto",
+                            "orientation": "horizontal",
+                            "reduceOptions": {
+                                "calcs": [
+                                    "lastNotNull"
+                                ],
+                                "fields": "",
+                                "values": false
+                            },
+                            "text": {},
+                            "textMode": "auto"
+                        },
+                        "pluginVersion": "7.4.3",
+                        "targets": [
+                            {
+                                "expr": "sum(rollout_info{phase=\"Paused\",source=\"argo-rollouts\"})",
+                                "format": "time_series",
+                                "hide": false,
+                                "instant": true,
+                                "interval": "",
+                                "intervalFactor": 1,
+                                "legendFormat": "",
+                                "refId": "A"
+                            }
+                        ],
+                        "title": "Paused",
+                        "type": "stat"
+                    },
+                    {
+                        "cacheTimeout": null,
+                        "datasource": "$datasource",
+                        "fieldConfig": {
+                            "defaults": {
+                                "color": {
+                                    "mode": "thresholds"
+                                },
+                                "custom": {},
+                                "mappings": [
+                                    {
+                                        "id": 0,
+                                        "op": "=",
+                                        "text": "0",
+                                        "type": 1,
+                                        "value": "null"
+                                    }
+                                ],
+                                "thresholds": {
+                                    "mode": "absolute",
+                                    "steps": [
+                                        {
+                                            "color": "#F2495C",
+                                            "value": null
+                                        },
+                                        {
+                                            "color": "#F2495C",
+                                            "value": 0
+                                        },
+                                        {
+                                            "color": "#F2495C",
+                                            "value": 1
+                                        }
+                                    ]
+                                },
+                                "unit": "none"
+                            },
+                            "overrides": []
+                        },
+                        "gridPos": {
+                            "h": 3,
+                            "w": 4,
+                            "x": 12,
+                            "y": 5
+                        },
+                        "id": 30,
+                        "interval": null,
+                        "links": [],
+                        "maxDataPoints": 100,
+                        "options": {
+                            "colorMode": "value",
+                            "graphMode": "area",
+                            "justifyMode": "auto",
+                            "orientation": "horizontal",
+                            "reduceOptions": {
+                                "calcs": [
+                                    "lastNotNull"
+                                ],
+                                "fields": "",
+                                "values": false
+                            },
+                            "text": {},
+                            "textMode": "auto"
+                        },
+                        "pluginVersion": "7.4.3",
+                        "targets": [
+                            {
+                                "expr": "sum(rollout_info{source=\"argo-rollouts\",phase=\"Error\"} == 1)",
+                                "format": "time_series",
+                                "hide": false,
+                                "intervalFactor": 1,
+                                "refId": "A"
+                            }
+                        ],
+                        "title": "Error",
+                        "type": "stat"
+                    },
+                    {
+                        "cacheTimeout": null,
+                        "datasource": "$datasource",
+                        "fieldConfig": {
+                            "defaults": {
+                                "color": {
+                                    "mode": "thresholds"
+                                },
+                                "custom": {},
+                                "mappings": [
+                                    {
+                                        "id": 0,
+                                        "op": "=",
+                                        "text": "0",
+                                        "type": 1,
+                                        "value": "null"
+                                    }
+                                ],
+                                "thresholds": {
+                                    "mode": "absolute",
+                                    "steps": [
+                                        {
+                                            "color": "#F2495C",
+                                            "value": null
+                                        },
+                                        {
+                                            "color": "#F2495C",
+                                            "value": 0
+                                        },
+                                        {
+                                            "color": "#F2495C",
+                                            "value": 1
+                                        }
+                                    ]
+                                },
+                                "unit": "none"
+                            },
+                            "overrides": []
+                        },
+                        "gridPos": {
+                            "h": 3,
+                            "w": 4,
+                            "x": 16,
+                            "y": 5
+                        },
+                        "id": 24,
+                        "interval": null,
+                        "links": [],
+                        "maxDataPoints": 100,
+                        "options": {
+                            "colorMode": "value",
+                            "graphMode": "none",
+                            "justifyMode": "auto",
+                            "orientation": "horizontal",
+                            "reduceOptions": {
+                                "calcs": [
+                                    "lastNotNull"
+                                ],
+                                "fields": "",
+                                "values": false
+                            },
+                            "text": {},
+                            "textMode": "auto"
+                        },
+                        "pluginVersion": "7.4.3",
+                        "targets": [
+                            {
+                                "expr": "sum(rollout_info{source=\"argo-rollouts\",phase=\"InvalidSpec\"} == 1)",
+                                "format": "time_series",
+                                "hide": false,
+                                "instant": true,
+                                "interval": "",
+                                "intervalFactor": 1,
+                                "legendFormat": "",
+                                "refId": "A"
+                            }
+                        ],
+                        "title": "Invalid Spec",
+                        "type": "stat"
+                    },
+                    {
+                        "cacheTimeout": null,
+                        "datasource": "$datasource",
+                        "fieldConfig": {
+                            "defaults": {
+                                "color": {
+                                    "mode": "thresholds"
+                                },
+                                "custom": {},
+                                "mappings": [
+                                    {
+                                        "id": 0,
+                                        "op": "=",
+                                        "text": "0",
+                                        "type": 1,
+                                        "value": "null"
+                                    }
+                                ],
+                                "thresholds": {
+                                    "mode": "absolute",
+                                    "steps": [
+                                        {
+                                            "color": "#F2495C",
+                                            "value": null
+                                        },
+                                        {
+                                            "color": "#F2495C",
+                                            "value": 0
+                                        },
+                                        {
+                                            "color": "#F2495C",
+                                            "value": 1
+                                        }
+                                    ]
+                                },
+                                "unit": "none"
+                            },
+                            "overrides": []
+                        },
+                        "gridPos": {
+                            "h": 3,
+                            "w": 4,
+                            "x": 20,
+                            "y": 5
+                        },
+                        "id": 28,
+                        "interval": null,
+                        "links": [],
+                        "maxDataPoints": 100,
+                        "options": {
+                            "colorMode": "value",
+                            "graphMode": "none",
+                            "justifyMode": "auto",
+                            "orientation": "horizontal",
+                            "reduceOptions": {
+                                "calcs": [
+                                    "lastNotNull"
+                                ],
+                                "fields": "",
+                                "values": false
+                            },
+                            "text": {},
+                            "textMode": "auto"
+                        },
+                        "pluginVersion": "7.4.3",
+                        "targets": [
+                            {
+                                "expr": "sum(rollout_info{source=\"argo-rollouts\",phase=\"Timeout\"} == 1)",
+                                "format": "time_series",
+                                "hide": false,
+                                "intervalFactor": 1,
+                                "refId": "A"
+                            }
+                        ],
+                        "title": "Timeout",
+                        "type": "stat"
+                    },
+                    {
+                        "cacheTimeout": null,
+                        "datasource": "$datasource",
+                        "fieldConfig": {
+                            "defaults": {
+                                "color": {
+                                    "mode": "thresholds"
+                                },
+                                "custom": {},
+                                "mappings": [
+                                    {
+                                        "id": 0,
+                                        "op": "=",
+                                        "text": "0",
+                                        "type": 1,
+                                        "value": "null"
+                                    }
+                                ],
+                                "thresholds": {
+                                    "mode": "absolute",
+                                    "steps": [
+                                        {
+                                            "color": "#FF9830",
+                                            "value": null
+                                        },
+                                        {
+                                            "color": "green",
+                                            "value": 0
+                                        },
+                                        {
+                                            "color": "red",
+                                            "value": 1
+                                        }
+                                    ]
+                                },
+                                "unit": "none"
+                            },
+                            "overrides": []
+                        },
+                        "gridPos": {
+                            "h": 3,
+                            "w": 4,
+                            "x": 0,
+                            "y": 8
+                        },
+                        "id": 23,
+                        "interval": null,
+                        "links": [],
+                        "maxDataPoints": 100,
+                        "options": {
+                            "colorMode": "value",
+                            "graphMode": "none",
+                            "justifyMode": "auto",
+                            "orientation": "horizontal",
+                            "reduceOptions": {
+                                "calcs": [
+                                    "lastNotNull"
+                                ],
+                                "fields": "",
+                                "values": false
+                            },
+                            "text": {},
+                            "textMode": "auto"
+                        },
+                        "pluginVersion": "7.4.3",
+                        "targets": [
+                            {
+                                "expr": "sum(rollout_info{source=\"argo-rollouts\",phase=\"Abort\"} == 1)",
+                                "format": "time_series",
+                                "hide": false,
+                                "interval": "",
+                                "intervalFactor": 1,
+                                "legendFormat": "",
+                                "refId": "A"
+                            }
+                        ],
+                        "title": "Aborted",
+                        "type": "stat"
+                    },
+                    {
+                        "aliasColors": {},
+                        "bars": false,
+                        "dashLength": 10,
+                        "dashes": false,
+                        "datasource": "$datasource",
+                        "fieldConfig": {
+                            "defaults": {
+                                "custom": {}
+                            },
+                            "overrides": []
+                        },
+                        "fill": 1,
+                        "fillGradient": 0,
+                        "gridPos": {
+                            "h": 8,
+                            "w": 24,
+                            "x": 0,
+                            "y": 11
+                        },
+                        "hiddenSeries": false,
+                        "id": 6,
+                        "legend": {
+                            "avg": false,
+                            "current": false,
+                            "max": false,
+                            "min": false,
+                            "show": true,
+                            "total": false,
+                            "values": false
+                        },
+                        "lines": true,
+                        "linewidth": 1,
+                        "links": [],
+                        "nullPointMode": "null",
+                        "options": {
+                            "alertThreshold": true
+                        },
+                        "paceLength": 10,
+                        "percentage": false,
+                        "pluginVersion": "7.4.3",
+                        "pointradius": 2,
+                        "points": false,
+                        "renderer": "flot",
+                        "seriesOverrides": [],
+                        "spaceLength": 10,
+                        "stack": false,
+                        "steppedLine": false,
+                        "targets": [
+                            {
+                                "expr": "sum(increase(rollout_reconcile_count{source=\"argo-rollouts\"}[10m]))",
+                                "format": "time_series",
+                                "intervalFactor": 1,
+                                "refId": "A"
+                            }
+                        ],
+                        "thresholds": [],
+                        "timeFrom": null,
+                        "timeRegions": [],
+                        "timeShift": null,
+                        "title": "Reconcile Activity",
+                        "tooltip": {
+                            "shared": true,
+                            "sort": 0,
+                            "value_type": "individual"
+                        },
+                        "type": "graph",
+                        "xaxis": {
+                            "buckets": null,
+                            "mode": "time",
+                            "name": null,
+                            "show": true,
+                            "values": []
+                        },
+                        "yaxes": [
+                            {
+                                "format": "short",
+                                "label": null,
+                                "logBase": 1,
+                                "max": null,
+                                "min": null,
+                                "show": true
+                            },
+                            {
+                                "format": "short",
+                                "label": null,
+                                "logBase": 1,
+                                "max": null,
+                                "min": null,
+                                "show": true
+                            }
+                        ],
+                        "yaxis": {
+                            "align": false,
+                            "alignLevel": null
+                        }
+                    },
                     {
                         "cards": {
                             "cardPadding": null,
@@ -169,7 +819,7 @@ data:
                         "reverseYBuckets": false,
                         "targets": [
                             {
-                                "expr": "sum(increase(cf_e_reporter_event_processing_duration[10m])) by (le)",
+                                "expr": "sum(increase(rollout_reconcile_bucket[10m])) by (le)",
                                 "format": "heatmap",
                                 "intervalFactor": 1,
                                 "legendFormat": "{{le}}",
@@ -178,7 +828,7 @@ data:
                         ],
                         "timeFrom": null,
                         "timeShift": null,
-                        "title": "Event processing duration",
+                        "title": "Reconciliation Performance",
                         "tooltip": {
                             "show": true,
                             "showHistogram": false
@@ -201,6 +851,103 @@ data:
                         "yBucketBound": "auto",
                         "yBucketNumber": null,
                         "yBucketSize": null
+                    },
+                    {
+                        "aliasColors": {},
+                        "bars": false,
+                        "dashLength": 10,
+                        "dashes": false,
+                        "datasource": "$datasource",
+                        "fieldConfig": {
+                            "defaults": {
+                                "custom": {}
+                            },
+                            "overrides": []
+                        },
+                        "fill": 1,
+                        "fillGradient": 0,
+                        "gridPos": {
+                            "h": 6,
+                            "w": 24,
+                            "x": 0,
+                            "y": 27
+                        },
+                        "hiddenSeries": false,
+                        "id": 12,
+                        "legend": {
+                            "avg": false,
+                            "current": false,
+                            "max": false,
+                            "min": false,
+                            "show": true,
+                            "total": false,
+                            "values": false
+                        },
+                        "lines": true,
+                        "linewidth": 1,
+                        "links": [],
+                        "nullPointMode": "null",
+                        "options": {
+                            "alertThreshold": true
+                        },
+                        "paceLength": 10,
+                        "percentage": false,
+                        "pluginVersion": "7.4.3",
+                        "pointradius": 2,
+                        "points": false,
+                        "renderer": "flot",
+                        "seriesOverrides": [],
+                        "spaceLength": 10,
+                        "stack": false,
+                        "steppedLine": false,
+                        "targets": [
+                            {
+                                "expr": "go_memstats_heap_alloc_bytes{source=\"argo-rollouts\"}",
+                                "format": "time_series",
+                                "intervalFactor": 1,
+                                "refId": "A"
+                            }
+                        ],
+                        "thresholds": [],
+                        "timeFrom": null,
+                        "timeRegions": [],
+                        "timeShift": null,
+                        "title": "Memory Used",
+                        "tooltip": {
+                            "shared": true,
+                            "sort": 0,
+                            "value_type": "individual"
+                        },
+                        "type": "graph",
+                        "xaxis": {
+                            "buckets": null,
+                            "mode": "time",
+                            "name": null,
+                            "show": true,
+                            "values": []
+                        },
+                        "yaxes": [
+                            {
+                                "format": "short",
+                                "label": null,
+                                "logBase": 1,
+                                "max": null,
+                                "min": null,
+                                "show": true
+                            },
+                            {
+                                "format": "short",
+                                "label": null,
+                                "logBase": 1,
+                                "max": null,
+                                "min": null,
+                                "show": true
+                            }
+                        ],
+                        "yaxis": {
+                            "align": false,
+                            "alignLevel": null
+                        }
                     }
                 ],
                 "title": "Controller Stats",
