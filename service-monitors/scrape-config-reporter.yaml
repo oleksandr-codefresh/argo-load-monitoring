@@ -5,7 +5,7 @@ metadata:
   labels:
     release: prometheus
 spec:
-  scrapeInterval: 30s
+  scrapeInterval: 10s
   scheme: HTTP
   staticConfigs:
     - labels:
