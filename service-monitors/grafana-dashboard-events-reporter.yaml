@@ -1242,7 +1242,7 @@ data:
         ]
     },
     "timezone": "",
-    "title": "Events reporter",
+    "title": "Codefresh argo-cd events reporter (v2)",
     "uid": "ad481a71-3b8b-4c2b-882f-5c1e6315d152",
     "version": 2,
     "weekStart": ""
