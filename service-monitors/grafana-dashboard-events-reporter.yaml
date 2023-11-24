@@ -337,4 +337,4 @@ metadata:
     grafana_dashboard: "1"
     heritage: Helm
     release: prometheus
-  name: argo-rollouts-grafana
+  name: grafana-dashboard-events-reporter
