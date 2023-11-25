@@ -1,0 +1,16 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: argocd-event-reporter-metrics
+  labels:
+    release: prometheus
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: event-reporter-metrics
+  namespaceSelector:
+    matchNames:
+    - argo-load
+  endpoints:
+  - port: metrics
