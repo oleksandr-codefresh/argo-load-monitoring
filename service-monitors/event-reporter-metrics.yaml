@@ -13,4 +13,4 @@ spec:
     matchNames:
     - argo-load
   endpoints:
-  - port: metrics
+  - port: http-metrics
