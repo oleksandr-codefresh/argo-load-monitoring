@@ -10,6 +10,13 @@ spec:
     repoURL: https://prometheus-community.github.io/helm-charts
     targetRevision: 52.1.0
     chart: kube-prometheus-stack
+    helm:
+      valuesObject:
+        prometheus:
+          resources:
+            requests:
+              cpu: "1"
+              memory: "4Gi"
   destination:
     server: https://kubernetes.default.svc
     namespace: prometheus
