@@ -21,7 +21,7 @@ data:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 22,
+      "id": 6,
       "links": [],
       "liveNow": false,
       "panels": [
@@ -108,7 +108,7 @@ data:
               },
               "disableTextWrap": false,
               "editorMode": "code",
-              "expr": "cf_e_reporter_queue_size{job=\"event-reporter-metrics\"}",
+              "expr": "cf_e_reporter_queue_size{job=\"event-reporter\"}",
               "format": "time_series",
               "fullMetaSearch": false,
               "includeNullMetadata": true,
@@ -173,8 +173,8 @@ data:
                 "uid": "$datasource"
               },
               "disableTextWrap": false,
-              "editorMode": "builder",
-              "expr": "delta(cf_e_reporter_queue_size{job=\"event-reporter-metrics\", reporter_shard=\"$reporter_shard\"}[1m])",
+              "editorMode": "code",
+              "expr": "delta(cf_e_reporter_queue_size{job=\"event-reporter\", reporter_shard=\"$reporter_shard\"}[1m])",
               "format": "time_series",
               "fullMetaSearch": false,
               "includeNullMetadata": true,
@@ -219,7 +219,7 @@ data:
           }
         },
         {
-          "collapsed": true,
+          "collapsed": false,
           "datasource": {
             "uid": "$datasource"
           },
@@ -230,303 +230,7 @@ data:
             "y": 10
           },
           "id": 4,
-          "panels": [
-            {
-              "aliasColors": {},
-              "bars": false,
-              "dashLength": 10,
-              "dashes": false,
-              "datasource": {
-                "type": "prometheus",
-                "uid": "$datasource"
-              },
-              "fill": 1,
-              "fillGradient": 0,
-              "gridPos": {
-                "h": 8,
-                "w": 24,
-                "x": 0,
-                "y": 11
-              },
-              "hiddenSeries": false,
-              "id": 47,
-              "legend": {
-                "alignAsTable": true,
-                "avg": true,
-                "current": true,
-                "max": false,
-                "min": false,
-                "rightSide": true,
-                "show": true,
-                "total": false,
-                "values": true
-              },
-              "lines": true,
-              "linewidth": 1,
-              "links": [],
-              "nullPointMode": "null",
-              "options": {
-                "alertThreshold": true
-              },
-              "paceLength": 10,
-              "percentage": false,
-              "pluginVersion": "10.1.5",
-              "pointradius": 2,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "spaceLength": 10,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
-                {
-                  "datasource": {
-                    "uid": "$datasource"
-                  },
-                  "disableTextWrap": false,
-                  "editorMode": "builder",
-                  "expr": "sum by(error_type) (sum by(reporter_shard) (increase(cf_e_reporter_errored_events{reporter_shard=\"$reporter_shard\"}[10m])))",
-                  "format": "time_series",
-                  "fullMetaSearch": false,
-                  "includeNullMetadata": true,
-                  "intervalFactor": 1,
-                  "legendFormat": "{{reporter_shard}}",
-                  "range": true,
-                  "refId": "A",
-                  "useBackend": false
-                }
-              ],
-              "thresholds": [],
-              "timeRegions": [],
-              "title": "Errored events",
-              "tooltip": {
-                "shared": true,
-                "sort": 0,
-                "value_type": "individual"
-              },
-              "type": "graph",
-              "xaxis": {
-                "mode": "time",
-                "show": true,
-                "values": []
-              },
-              "yaxes": [
-                {
-                  "$$hashKey": "object:72",
-                  "format": "short",
-                  "logBase": 1,
-                  "show": true
-                },
-                {
-                  "$$hashKey": "object:73",
-                  "format": "short",
-                  "logBase": 1,
-                  "show": true
-                }
-              ],
-              "yaxis": {
-                "align": false
-              }
-            },
-            {
-              "aliasColors": {},
-              "bars": false,
-              "dashLength": 10,
-              "dashes": false,
-              "datasource": {
-                "type": "prometheus",
-                "uid": "$datasource"
-              },
-              "fill": 1,
-              "fillGradient": 0,
-              "gridPos": {
-                "h": 8,
-                "w": 24,
-                "x": 0,
-                "y": 19
-              },
-              "hiddenSeries": false,
-              "id": 48,
-              "legend": {
-                "alignAsTable": true,
-                "avg": true,
-                "current": true,
-                "hideEmpty": false,
-                "hideZero": false,
-                "max": false,
-                "min": false,
-                "rightSide": true,
-                "show": true,
-                "total": false,
-                "values": true
-              },
-              "lines": true,
-              "linewidth": 1,
-              "links": [],
-              "nullPointMode": "null",
-              "options": {
-                "alertThreshold": true
-              },
-              "paceLength": 10,
-              "percentage": false,
-              "pluginVersion": "10.1.5",
-              "pointradius": 2,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "spaceLength": 10,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
-                {
-                  "datasource": {
-                    "uid": "$datasource"
-                  },
-                  "disableTextWrap": false,
-                  "editorMode": "builder",
-                  "exemplar": false,
-                  "expr": "sum by(reporter_shard) (increase(cf_e_reporter_cached_ignored_events{metric_event_type=\"app\", reporter_shard=\"$reporter_shard\"}[10m]))",
-                  "format": "time_series",
-                  "fullMetaSearch": false,
-                  "includeNullMetadata": true,
-                  "interval": "",
-                  "intervalFactor": 1,
-                  "legendFormat": "__auto",
-                  "range": true,
-                  "refId": "A",
-                  "useBackend": false
-                }
-              ],
-              "thresholds": [],
-              "timeRegions": [],
-              "title": "Cached ignored application events",
-              "tooltip": {
-                "shared": true,
-                "sort": 0,
-                "value_type": "individual"
-              },
-              "type": "graph",
-              "xaxis": {
-                "mode": "time",
-                "show": true,
-                "values": []
-              },
-              "yaxes": [
-                {
-                  "$$hashKey": "object:72",
-                  "format": "short",
-                  "logBase": 1,
-                  "show": true
-                },
-                {
-                  "$$hashKey": "object:73",
-                  "format": "short",
-                  "logBase": 1,
-                  "show": true
-                }
-              ],
-              "yaxis": {
-                "align": false
-              }
-            },
-            {
-              "aliasColors": {},
-              "bars": false,
-              "dashLength": 10,
-              "dashes": false,
-              "datasource": {
-                "type": "prometheus",
-                "uid": "$datasource"
-              },
-              "fill": 1,
-              "fillGradient": 0,
-              "gridPos": {
-                "h": 8,
-                "w": 24,
-                "x": 0,
-                "y": 27
-              },
-              "hiddenSeries": false,
-              "id": 6,
-              "legend": {
-                "alignAsTable": true,
-                "avg": true,
-                "current": true,
-                "max": false,
-                "min": false,
-                "rightSide": true,
-                "show": true,
-                "total": false,
-                "values": true
-              },
-              "lines": true,
-              "linewidth": 1,
-              "links": [],
-              "nullPointMode": "null",
-              "options": {
-                "alertThreshold": true
-              },
-              "paceLength": 10,
-              "percentage": false,
-              "pluginVersion": "10.1.5",
-              "pointradius": 2,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "spaceLength": 10,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
-                {
-                  "datasource": {
-                    "uid": "$datasource"
-                  },
-                  "disableTextWrap": false,
-                  "editorMode": "builder",
-                  "expr": "sum by(reporter_shard) (increase(cf_e_reporter_cached_ignored_events{reporter_shard=\"$reporter_shard\", metric_event_type=\"resource\"}[10m]))",
-                  "format": "time_series",
-                  "fullMetaSearch": false,
-                  "includeNullMetadata": true,
-                  "intervalFactor": 1,
-                  "legendFormat": "{{reporter_shard}}",
-                  "range": true,
-                  "refId": "A",
-                  "useBackend": false
-                }
-              ],
-              "thresholds": [],
-              "timeRegions": [],
-              "title": "Cached ignored resource events",
-              "tooltip": {
-                "shared": true,
-                "sort": 0,
-                "value_type": "individual"
-              },
-              "type": "graph",
-              "xaxis": {
-                "mode": "time",
-                "show": true,
-                "values": []
-              },
-              "yaxes": [
-                {
-                  "$$hashKey": "object:72",
-                  "format": "short",
-                  "logBase": 1,
-                  "show": true
-                },
-                {
-                  "$$hashKey": "object:73",
-                  "format": "short",
-                  "logBase": 1,
-                  "show": true
-                }
-              ],
-              "yaxis": {
-                "align": false
-              }
-            }
-          ],
+          "panels": [],
           "targets": [
             {
               "datasource": {
@@ -536,384 +240,6 @@ data:
             }
           ],
           "title": "Events stats of shard - $reporter_shard",
-          "type": "row"
-        },
-        {
-          "collapsed": true,
-          "gridPos": {
-            "h": 1,
-            "w": 24,
-            "x": 0,
-            "y": 11
-          },
-          "id": 51,
-          "panels": [
-            {
-              "cards": {},
-              "color": {
-                "cardColor": "#b4ff00",
-                "colorScale": "sqrt",
-                "colorScheme": "interpolateSpectral",
-                "exponent": 0.5,
-                "mode": "spectrum"
-              },
-              "dataFormat": "tsbuckets",
-              "datasource": {
-                "type": "prometheus",
-                "uid": "$datasource"
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "custom": {
-                    "hideFrom": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": false
-                    },
-                    "scaleDistribution": {
-                      "type": "linear"
-                    }
-                  }
-                },
-                "overrides": []
-              },
-              "gridPos": {
-                "h": 8,
-                "w": 24,
-                "x": 0,
-                "y": 12
-              },
-              "heatmap": {},
-              "hideZeroBuckets": false,
-              "highlightCards": true,
-              "id": 44,
-              "legend": {
-                "show": false
-              },
-              "links": [],
-              "options": {
-                "calculate": false,
-                "calculation": {},
-                "cellGap": 2,
-                "cellValues": {},
-                "color": {
-                  "exponent": 0.5,
-                  "fill": "#b4ff00",
-                  "mode": "scheme",
-                  "reverse": false,
-                  "scale": "exponential",
-                  "scheme": "Spectral",
-                  "steps": 128
-                },
-                "exemplars": {
-                  "color": "rgba(255,0,255,0.7)"
-                },
-                "filterValues": {
-                  "le": 1e-9
-                },
-                "legend": {
-                  "show": true
-                },
-                "rowsFrame": {
-                  "layout": "auto"
-                },
-                "showValue": "never",
-                "tooltip": {
-                  "show": true,
-                  "yHistogram": false
-                },
-                "yAxis": {
-                  "axisPlacement": "left",
-                  "reverse": false,
-                  "unit": "short"
-                }
-              },
-              "pluginVersion": "10.1.5",
-              "reverseYBuckets": false,
-              "targets": [
-                {
-                  "datasource": {
-                    "uid": "$datasource"
-                  },
-                  "disableTextWrap": false,
-                  "editorMode": "code",
-                  "expr": "sum by(le) (increase(cf_e_reporter_event_processing_duration_bucket{metric_event_type=\"parent_app\", reporter_shard=\"$reporter_shard\"}[10m]))",
-                  "format": "heatmap",
-                  "fullMetaSearch": false,
-                  "hide": false,
-                  "includeNullMetadata": true,
-                  "intervalFactor": 1,
-                  "legendFormat": "{{le}}",
-                  "range": true,
-                  "refId": "A",
-                  "useBackend": false
-                }
-              ],
-              "title": "Parent app event performance (s)",
-              "tooltip": {
-                "show": true,
-                "showHistogram": false
-              },
-              "type": "heatmap",
-              "xAxis": {
-                "show": true
-              },
-              "yAxis": {
-                "format": "short",
-                "logBase": 1,
-                "show": true
-              },
-              "yBucketBound": "auto"
-            },
-            {
-              "cards": {},
-              "color": {
-                "cardColor": "#b4ff00",
-                "colorScale": "sqrt",
-                "colorScheme": "interpolateSpectral",
-                "exponent": 0.5,
-                "mode": "spectrum"
-              },
-              "dataFormat": "tsbuckets",
-              "datasource": {
-                "type": "prometheus",
-                "uid": "$datasource"
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "custom": {
-                    "hideFrom": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": false
-                    },
-                    "scaleDistribution": {
-                      "type": "linear"
-                    }
-                  }
-                },
-                "overrides": []
-              },
-              "gridPos": {
-                "h": 8,
-                "w": 24,
-                "x": 0,
-                "y": 20
-              },
-              "heatmap": {},
-              "hideZeroBuckets": false,
-              "highlightCards": true,
-              "id": 43,
-              "legend": {
-                "show": false
-              },
-              "links": [],
-              "options": {
-                "calculate": false,
-                "calculation": {},
-                "cellGap": 2,
-                "cellValues": {},
-                "color": {
-                  "exponent": 0.5,
-                  "fill": "#b4ff00",
-                  "mode": "scheme",
-                  "reverse": false,
-                  "scale": "exponential",
-                  "scheme": "Spectral",
-                  "steps": 128
-                },
-                "exemplars": {
-                  "color": "rgba(255,0,255,0.7)"
-                },
-                "filterValues": {
-                  "le": 1e-9
-                },
-                "legend": {
-                  "show": true
-                },
-                "rowsFrame": {
-                  "layout": "auto"
-                },
-                "showValue": "never",
-                "tooltip": {
-                  "show": true,
-                  "yHistogram": false
-                },
-                "yAxis": {
-                  "axisPlacement": "left",
-                  "reverse": false,
-                  "unit": "short"
-                }
-              },
-              "pluginVersion": "10.1.5",
-              "reverseYBuckets": false,
-              "targets": [
-                {
-                  "datasource": {
-                    "uid": "$datasource"
-                  },
-                  "disableTextWrap": false,
-                  "editorMode": "code",
-                  "expr": "sum by(le) (increase(cf_e_reporter_event_processing_duration_bucket{job=\"event-reporter-metrics\", metric_event_type=\"child_app\", reporter_shard=\"$reporter_shard\"}[10m]))",
-                  "format": "heatmap",
-                  "fullMetaSearch": false,
-                  "hide": false,
-                  "includeNullMetadata": true,
-                  "intervalFactor": 1,
-                  "legendFormat": "{{le}}",
-                  "range": true,
-                  "refId": "A",
-                  "useBackend": false
-                }
-              ],
-              "title": "Child app event performance (s)",
-              "tooltip": {
-                "show": true,
-                "showHistogram": false
-              },
-              "type": "heatmap",
-              "xAxis": {
-                "show": true
-              },
-              "yAxis": {
-                "format": "short",
-                "logBase": 1,
-                "show": true
-              },
-              "yBucketBound": "auto"
-            },
-            {
-              "cards": {},
-              "color": {
-                "cardColor": "#b4ff00",
-                "colorScale": "sqrt",
-                "colorScheme": "interpolateSpectral",
-                "exponent": 0.5,
-                "mode": "spectrum"
-              },
-              "dataFormat": "tsbuckets",
-              "datasource": {
-                "type": "prometheus",
-                "uid": "$datasource"
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "custom": {
-                    "hideFrom": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": false
-                    },
-                    "scaleDistribution": {
-                      "type": "linear"
-                    }
-                  }
-                },
-                "overrides": []
-              },
-              "gridPos": {
-                "h": 8,
-                "w": 24,
-                "x": 0,
-                "y": 28
-              },
-              "heatmap": {},
-              "hideZeroBuckets": false,
-              "highlightCards": true,
-              "id": 8,
-              "legend": {
-                "show": false
-              },
-              "links": [],
-              "options": {
-                "calculate": false,
-                "calculation": {},
-                "cellGap": 2,
-                "cellValues": {},
-                "color": {
-                  "exponent": 0.5,
-                  "fill": "#b4ff00",
-                  "mode": "scheme",
-                  "reverse": false,
-                  "scale": "exponential",
-                  "scheme": "Spectral",
-                  "steps": 128
-                },
-                "exemplars": {
-                  "color": "rgba(255,0,255,0.7)"
-                },
-                "filterValues": {
-                  "le": 1e-9
-                },
-                "legend": {
-                  "show": true
-                },
-                "rowsFrame": {
-                  "layout": "auto"
-                },
-                "showValue": "never",
-                "tooltip": {
-                  "show": true,
-                  "yHistogram": false
-                },
-                "yAxis": {
-                  "axisPlacement": "left",
-                  "reverse": false,
-                  "unit": "short"
-                }
-              },
-              "pluginVersion": "10.1.5",
-              "reverseYBuckets": false,
-              "targets": [
-                {
-                  "datasource": {
-                    "uid": "$datasource"
-                  },
-                  "disableTextWrap": false,
-                  "editorMode": "builder",
-                  "expr": "sum by(le) (increase(cf_e_reporter_event_processing_duration_bucket{metric_event_type=\"resource\", reporter_shard=\"$reporter_shard\"}[10m]))",
-                  "format": "heatmap",
-                  "fullMetaSearch": false,
-                  "hide": false,
-                  "includeNullMetadata": true,
-                  "intervalFactor": 1,
-                  "legendFormat": "{{le}}",
-                  "range": true,
-                  "refId": "A",
-                  "useBackend": false
-                }
-              ],
-              "title": "Resource event performance (s)",
-              "tooltip": {
-                "show": true,
-                "showHistogram": false
-              },
-              "type": "heatmap",
-              "xAxis": {
-                "show": true
-              },
-              "yAxis": {
-                "format": "short",
-                "logBase": 1,
-                "show": true
-              },
-              "yBucketBound": "auto"
-            }
-          ],
-          "title": "Performance of shard - $reporter_shard",
-          "type": "row"
-        },
-        {
-          "collapsed": false,
-          "gridPos": {
-            "h": 1,
-            "w": 24,
-            "x": 0,
-            "y": 12
-          },
-          "id": 50,
-          "panels": [],
-          "title": "Go stats",
           "type": "row"
         },
         {
@@ -928,21 +254,23 @@ data:
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
-            "h": 6,
+            "h": 8,
             "w": 24,
             "x": 0,
-            "y": 13
+            "y": 11
           },
           "hiddenSeries": false,
-          "id": 12,
+          "id": 47,
           "legend": {
-            "avg": false,
-            "current": false,
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
             "max": false,
             "min": false,
+            "rightSide": true,
             "show": true,
             "total": false,
-            "values": false
+            "values": true
           },
           "lines": true,
           "linewidth": 1,
@@ -968,11 +296,12 @@ data:
               },
               "disableTextWrap": false,
               "editorMode": "builder",
-              "expr": "go_memstats_heap_alloc_bytes{source=\"cf-event-reporter\"}",
+              "expr": "sum by(error_type) (sum by(reporter_shard) (increase(cf_e_reporter_errored_events{reporter_shard=\"$reporter_shard\"}[10m])))",
               "format": "time_series",
               "fullMetaSearch": false,
               "includeNullMetadata": true,
               "intervalFactor": 1,
+              "legendFormat": "{{reporter_shard}}",
               "range": true,
               "refId": "A",
               "useBackend": false
@@ -980,7 +309,7 @@ data:
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "Memory Used",
+          "title": "Errored events",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -994,13 +323,13 @@ data:
           },
           "yaxes": [
             {
-              "$$hashKey": "object:70",
+              "$$hashKey": "object:72",
               "format": "short",
               "logBase": 1,
               "show": true
             },
             {
-              "$$hashKey": "object:71",
+              "$$hashKey": "object:73",
               "format": "short",
               "logBase": 1,
               "show": true
@@ -1022,21 +351,25 @@ data:
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
-            "h": 6,
+            "h": 8,
             "w": 24,
             "x": 0,
             "y": 19
           },
           "hiddenSeries": false,
-          "id": 45,
+          "id": 48,
           "legend": {
-            "avg": false,
-            "current": false,
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "hideEmpty": false,
+            "hideZero": false,
             "max": false,
             "min": false,
+            "rightSide": true,
             "show": true,
             "total": false,
-            "values": false
+            "values": true
           },
           "lines": true,
           "linewidth": 1,
@@ -1061,12 +394,15 @@ data:
                 "uid": "$datasource"
               },
               "disableTextWrap": false,
-              "editorMode": "code",
-              "expr": "go_goroutines{source=\"cf-event-reporter\"}",
+              "editorMode": "builder",
+              "exemplar": false,
+              "expr": "sum by(reporter_shard) (increase(cf_e_reporter_cached_ignored_events{metric_event_type=\"app\", reporter_shard=\"$reporter_shard\"}[10m]))",
               "format": "time_series",
               "fullMetaSearch": false,
               "includeNullMetadata": true,
+              "interval": "",
               "intervalFactor": 1,
+              "legendFormat": "__auto",
               "range": true,
               "refId": "A",
               "useBackend": false
@@ -1074,7 +410,7 @@ data:
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "Amount of go routines",
+          "title": "Cached ignored application events",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -1088,11 +424,13 @@ data:
           },
           "yaxes": [
             {
+              "$$hashKey": "object:72",
               "format": "short",
               "logBase": 1,
               "show": true
             },
             {
+              "$$hashKey": "object:73",
               "format": "short",
               "logBase": 1,
               "show": true
@@ -1114,21 +452,23 @@ data:
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
-            "h": 6,
+            "h": 8,
             "w": 24,
             "x": 0,
-            "y": 25
+            "y": 27
           },
           "hiddenSeries": false,
-          "id": 46,
+          "id": 6,
           "legend": {
-            "avg": false,
-            "current": false,
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
             "max": false,
             "min": false,
+            "rightSide": true,
             "show": true,
             "total": false,
-            "values": false
+            "values": true
           },
           "lines": true,
           "linewidth": 1,
@@ -1153,12 +493,13 @@ data:
                 "uid": "$datasource"
               },
               "disableTextWrap": false,
-              "editorMode": "code",
-              "expr": "go_threads{source=\"cf-event-reporter\"}",
+              "editorMode": "builder",
+              "expr": "sum by(reporter_shard) (increase(cf_e_reporter_cached_ignored_events{reporter_shard=\"$reporter_shard\", metric_event_type=\"resource\"}[10m]))",
               "format": "time_series",
               "fullMetaSearch": false,
               "includeNullMetadata": true,
               "intervalFactor": 1,
+              "legendFormat": "{{reporter_shard}}",
               "range": true,
               "refId": "A",
               "useBackend": false
@@ -1166,7 +507,7 @@ data:
           ],
           "thresholds": [],
           "timeRegions": [],
-          "title": "Number of OS threads created",
+          "title": "Cached ignored resource events",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -1180,11 +521,13 @@ data:
           },
           "yaxes": [
             {
+              "$$hashKey": "object:72",
               "format": "short",
               "logBase": 1,
               "show": true
             },
             {
+              "$$hashKey": "object:73",
               "format": "short",
               "logBase": 1,
               "show": true
@@ -1193,6 +536,662 @@ data:
           "yaxis": {
             "align": false
           }
+        },
+        {
+          "collapsed": false,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 35
+          },
+          "id": 51,
+          "panels": [],
+          "title": "Performance of shard - $reporter_shard",
+          "type": "row"
+        },
+        {
+          "cards": {},
+          "color": {
+            "cardColor": "#b4ff00",
+            "colorScale": "sqrt",
+            "colorScheme": "interpolateSpectral",
+            "exponent": 0.5,
+            "mode": "spectrum"
+          },
+          "dataFormat": "tsbuckets",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "$datasource"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "scaleDistribution": {
+                  "type": "linear"
+                }
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 36
+          },
+          "heatmap": {},
+          "hideZeroBuckets": false,
+          "highlightCards": true,
+          "id": 44,
+          "legend": {
+            "show": false
+          },
+          "links": [],
+          "options": {
+            "calculate": false,
+            "calculation": {},
+            "cellGap": 2,
+            "cellValues": {},
+            "color": {
+              "exponent": 0.5,
+              "fill": "#b4ff00",
+              "mode": "scheme",
+              "reverse": false,
+              "scale": "exponential",
+              "scheme": "Spectral",
+              "steps": 128
+            },
+            "exemplars": {
+              "color": "rgba(255,0,255,0.7)"
+            },
+            "filterValues": {
+              "le": 1e-9
+            },
+            "legend": {
+              "show": true
+            },
+            "rowsFrame": {
+              "layout": "auto"
+            },
+            "showValue": "never",
+            "tooltip": {
+              "show": true,
+              "yHistogram": false
+            },
+            "yAxis": {
+              "axisPlacement": "left",
+              "reverse": false,
+              "unit": "short"
+            }
+          },
+          "pluginVersion": "10.1.5",
+          "reverseYBuckets": false,
+          "targets": [
+            {
+              "datasource": {
+                "uid": "$datasource"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "sum by(le) (increase(cf_e_reporter_event_processing_duration_bucket{metric_event_type=\"parent_app\", reporter_shard=\"$reporter_shard\"}[10m]))",
+              "format": "heatmap",
+              "fullMetaSearch": false,
+              "hide": false,
+              "includeNullMetadata": true,
+              "intervalFactor": 1,
+              "legendFormat": "{{le}}",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "title": "Parent app event performance (s)",
+          "tooltip": {
+            "show": true,
+            "showHistogram": false
+          },
+          "type": "heatmap",
+          "xAxis": {
+            "show": true
+          },
+          "yAxis": {
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          },
+          "yBucketBound": "auto"
+        },
+        {
+          "cards": {},
+          "color": {
+            "cardColor": "#b4ff00",
+            "colorScale": "sqrt",
+            "colorScheme": "interpolateSpectral",
+            "exponent": 0.5,
+            "mode": "spectrum"
+          },
+          "dataFormat": "tsbuckets",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "$datasource"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "scaleDistribution": {
+                  "type": "linear"
+                }
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 44
+          },
+          "heatmap": {},
+          "hideZeroBuckets": false,
+          "highlightCards": true,
+          "id": 43,
+          "legend": {
+            "show": false
+          },
+          "links": [],
+          "options": {
+            "calculate": false,
+            "calculation": {},
+            "cellGap": 2,
+            "cellValues": {},
+            "color": {
+              "exponent": 0.5,
+              "fill": "#b4ff00",
+              "mode": "scheme",
+              "reverse": false,
+              "scale": "exponential",
+              "scheme": "Spectral",
+              "steps": 128
+            },
+            "exemplars": {
+              "color": "rgba(255,0,255,0.7)"
+            },
+            "filterValues": {
+              "le": 1e-9
+            },
+            "legend": {
+              "show": true
+            },
+            "rowsFrame": {
+              "layout": "auto"
+            },
+            "showValue": "never",
+            "tooltip": {
+              "show": true,
+              "yHistogram": false
+            },
+            "yAxis": {
+              "axisPlacement": "left",
+              "reverse": false,
+              "unit": "short"
+            }
+          },
+          "pluginVersion": "10.1.5",
+          "reverseYBuckets": false,
+          "targets": [
+            {
+              "datasource": {
+                "uid": "$datasource"
+              },
+              "disableTextWrap": false,
+              "editorMode": "code",
+              "expr": "sum by(le) (increase(cf_e_reporter_event_processing_duration_bucket{job=\"event-reporter\", metric_event_type=\"child_app\", reporter_shard=\"$reporter_shard\"}[10m]))",
+              "format": "heatmap",
+              "fullMetaSearch": false,
+              "hide": false,
+              "includeNullMetadata": true,
+              "intervalFactor": 1,
+              "legendFormat": "{{le}}",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "title": "Child app event performance (s)",
+          "tooltip": {
+            "show": true,
+            "showHistogram": false
+          },
+          "type": "heatmap",
+          "xAxis": {
+            "show": true
+          },
+          "yAxis": {
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          },
+          "yBucketBound": "auto"
+        },
+        {
+          "cards": {},
+          "color": {
+            "cardColor": "#b4ff00",
+            "colorScale": "sqrt",
+            "colorScheme": "interpolateSpectral",
+            "exponent": 0.5,
+            "mode": "spectrum"
+          },
+          "dataFormat": "tsbuckets",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "$datasource"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "scaleDistribution": {
+                  "type": "linear"
+                }
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 52
+          },
+          "heatmap": {},
+          "hideZeroBuckets": false,
+          "highlightCards": true,
+          "id": 8,
+          "legend": {
+            "show": false
+          },
+          "links": [],
+          "options": {
+            "calculate": false,
+            "calculation": {},
+            "cellGap": 2,
+            "cellValues": {},
+            "color": {
+              "exponent": 0.5,
+              "fill": "#b4ff00",
+              "mode": "scheme",
+              "reverse": false,
+              "scale": "exponential",
+              "scheme": "Spectral",
+              "steps": 128
+            },
+            "exemplars": {
+              "color": "rgba(255,0,255,0.7)"
+            },
+            "filterValues": {
+              "le": 1e-9
+            },
+            "legend": {
+              "show": true
+            },
+            "rowsFrame": {
+              "layout": "auto"
+            },
+            "showValue": "never",
+            "tooltip": {
+              "show": true,
+              "yHistogram": false
+            },
+            "yAxis": {
+              "axisPlacement": "left",
+              "reverse": false,
+              "unit": "short"
+            }
+          },
+          "pluginVersion": "10.1.5",
+          "reverseYBuckets": false,
+          "targets": [
+            {
+              "datasource": {
+                "uid": "$datasource"
+              },
+              "disableTextWrap": false,
+              "editorMode": "builder",
+              "expr": "sum by(le) (increase(cf_e_reporter_event_processing_duration_bucket{metric_event_type=\"resource\", reporter_shard=\"$reporter_shard\"}[10m]))",
+              "format": "heatmap",
+              "fullMetaSearch": false,
+              "hide": false,
+              "includeNullMetadata": true,
+              "intervalFactor": 1,
+              "legendFormat": "{{le}}",
+              "range": true,
+              "refId": "A",
+              "useBackend": false
+            }
+          ],
+          "title": "Resource event performance (s)",
+          "tooltip": {
+            "show": true,
+            "showHistogram": false
+          },
+          "type": "heatmap",
+          "xAxis": {
+            "show": true
+          },
+          "yAxis": {
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          },
+          "yBucketBound": "auto"
+        },
+        {
+          "collapsed": true,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 60
+          },
+          "id": 50,
+          "panels": [
+            {
+              "aliasColors": {},
+              "bars": false,
+              "dashLength": 10,
+              "dashes": false,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "$datasource"
+              },
+              "fill": 1,
+              "fillGradient": 0,
+              "gridPos": {
+                "h": 6,
+                "w": 24,
+                "x": 0,
+                "y": 13
+              },
+              "hiddenSeries": false,
+              "id": 12,
+              "legend": {
+                "avg": false,
+                "current": false,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": false
+              },
+              "lines": true,
+              "linewidth": 1,
+              "links": [],
+              "nullPointMode": "null",
+              "options": {
+                "alertThreshold": true
+              },
+              "paceLength": 10,
+              "percentage": false,
+              "pluginVersion": "10.1.5",
+              "pointradius": 2,
+              "points": false,
+              "renderer": "flot",
+              "seriesOverrides": [],
+              "spaceLength": 10,
+              "stack": false,
+              "steppedLine": false,
+              "targets": [
+                {
+                  "datasource": {
+                    "uid": "$datasource"
+                  },
+                  "disableTextWrap": false,
+                  "editorMode": "builder",
+                  "expr": "go_memstats_heap_alloc_bytes{source=\"cf-event-reporter\"}",
+                  "format": "time_series",
+                  "fullMetaSearch": false,
+                  "includeNullMetadata": true,
+                  "intervalFactor": 1,
+                  "range": true,
+                  "refId": "A",
+                  "useBackend": false
+                }
+              ],
+              "thresholds": [],
+              "timeRegions": [],
+              "title": "Memory Used",
+              "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+              },
+              "type": "graph",
+              "xaxis": {
+                "mode": "time",
+                "show": true,
+                "values": []
+              },
+              "yaxes": [
+                {
+                  "$$hashKey": "object:70",
+                  "format": "short",
+                  "logBase": 1,
+                  "show": true
+                },
+                {
+                  "$$hashKey": "object:71",
+                  "format": "short",
+                  "logBase": 1,
+                  "show": true
+                }
+              ],
+              "yaxis": {
+                "align": false
+              }
+            },
+            {
+              "aliasColors": {},
+              "bars": false,
+              "dashLength": 10,
+              "dashes": false,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "$datasource"
+              },
+              "fill": 1,
+              "fillGradient": 0,
+              "gridPos": {
+                "h": 6,
+                "w": 24,
+                "x": 0,
+                "y": 19
+              },
+              "hiddenSeries": false,
+              "id": 45,
+              "legend": {
+                "avg": false,
+                "current": false,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": false
+              },
+              "lines": true,
+              "linewidth": 1,
+              "links": [],
+              "nullPointMode": "null",
+              "options": {
+                "alertThreshold": true
+              },
+              "paceLength": 10,
+              "percentage": false,
+              "pluginVersion": "10.1.5",
+              "pointradius": 2,
+              "points": false,
+              "renderer": "flot",
+              "seriesOverrides": [],
+              "spaceLength": 10,
+              "stack": false,
+              "steppedLine": false,
+              "targets": [
+                {
+                  "datasource": {
+                    "uid": "$datasource"
+                  },
+                  "disableTextWrap": false,
+                  "editorMode": "code",
+                  "expr": "go_goroutines{source=\"cf-event-reporter\"}",
+                  "format": "time_series",
+                  "fullMetaSearch": false,
+                  "includeNullMetadata": true,
+                  "intervalFactor": 1,
+                  "range": true,
+                  "refId": "A",
+                  "useBackend": false
+                }
+              ],
+              "thresholds": [],
+              "timeRegions": [],
+              "title": "Amount of go routines",
+              "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+              },
+              "type": "graph",
+              "xaxis": {
+                "mode": "time",
+                "show": true,
+                "values": []
+              },
+              "yaxes": [
+                {
+                  "format": "short",
+                  "logBase": 1,
+                  "show": true
+                },
+                {
+                  "format": "short",
+                  "logBase": 1,
+                  "show": true
+                }
+              ],
+              "yaxis": {
+                "align": false
+              }
+            },
+            {
+              "aliasColors": {},
+              "bars": false,
+              "dashLength": 10,
+              "dashes": false,
+              "datasource": {
+                "type": "prometheus",
+                "uid": "$datasource"
+              },
+              "fill": 1,
+              "fillGradient": 0,
+              "gridPos": {
+                "h": 6,
+                "w": 24,
+                "x": 0,
+                "y": 25
+              },
+              "hiddenSeries": false,
+              "id": 46,
+              "legend": {
+                "avg": false,
+                "current": false,
+                "max": false,
+                "min": false,
+                "show": true,
+                "total": false,
+                "values": false
+              },
+              "lines": true,
+              "linewidth": 1,
+              "links": [],
+              "nullPointMode": "null",
+              "options": {
+                "alertThreshold": true
+              },
+              "paceLength": 10,
+              "percentage": false,
+              "pluginVersion": "10.1.5",
+              "pointradius": 2,
+              "points": false,
+              "renderer": "flot",
+              "seriesOverrides": [],
+              "spaceLength": 10,
+              "stack": false,
+              "steppedLine": false,
+              "targets": [
+                {
+                  "datasource": {
+                    "uid": "$datasource"
+                  },
+                  "disableTextWrap": false,
+                  "editorMode": "code",
+                  "expr": "go_threads{source=\"cf-event-reporter\"}",
+                  "format": "time_series",
+                  "fullMetaSearch": false,
+                  "includeNullMetadata": true,
+                  "intervalFactor": 1,
+                  "range": true,
+                  "refId": "A",
+                  "useBackend": false
+                }
+              ],
+              "thresholds": [],
+              "timeRegions": [],
+              "title": "Number of OS threads created",
+              "tooltip": {
+                "shared": true,
+                "sort": 0,
+                "value_type": "individual"
+              },
+              "type": "graph",
+              "xaxis": {
+                "mode": "time",
+                "show": true,
+                "values": []
+              },
+              "yaxes": [
+                {
+                  "format": "short",
+                  "logBase": 1,
+                  "show": true
+                },
+                {
+                  "format": "short",
+                  "logBase": 1,
+                  "show": true
+                }
+              ],
+              "yaxis": {
+                "align": false
+              }
+            }
+          ],
+          "title": "Go stats",
+          "type": "row"
         }
       ],
       "refresh": "5s",
@@ -1318,7 +1317,7 @@ data:
       "timezone": "",
       "title": "Codefresh argo-cd events reporter (v2)",
       "uid": "ad481a71-3b8b-4c2b-882f-5c1e6315d152",
-      "version": 4,
+      "version": 1,
       "weekStart": ""
     }
 kind: ConfigMap
