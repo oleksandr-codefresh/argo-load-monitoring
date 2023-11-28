@@ -13,10 +13,11 @@ spec:
     helm:
       valuesObject:
         prometheus:
-          resources:
-            requests:
-              cpu: "1"
-              memory: "4Gi"
+          prometheusSpec:
+            resources:
+              requests:
+                cpu: "1"
+                memory: "4Gi"
   destination:
     server: https://kubernetes.default.svc
     namespace: prometheus
