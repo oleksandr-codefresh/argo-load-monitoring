@@ -2,7 +2,7 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: argo-cd-event-reporter-metrics
+  name: event-reporter
   labels:
     release: prometheus
 spec:
