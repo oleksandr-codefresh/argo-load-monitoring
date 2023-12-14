@@ -11,8 +11,9 @@ spec:
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
   destination:
-    name: scale-prod
-    namespace: gb-rollout
+    name: in-cluster
+    # name: scale-prod
+    namespace: argo-load
   syncPolicy:
     # automated:
     #   prune: true
