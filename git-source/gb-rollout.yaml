@@ -15,9 +15,9 @@ spec:
     # name: scale-prod
     namespace: argo-load
   syncPolicy:
-    # automated:
-    #   prune: true
-    #   selfHeal: true
+    automated:
+      prune: true
+      # selfHeal: true
     syncOptions:
       - PrunePropagationPolicy=foreground
       - Replace=false
