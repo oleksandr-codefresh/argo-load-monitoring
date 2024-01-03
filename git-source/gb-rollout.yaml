@@ -13,7 +13,7 @@ spec:
   destination:
     name: in-cluster
     # name: scale-prod
-    namespace: argo-load
+    namespace: codefresh
   syncPolicy:
     automated:
       prune: true

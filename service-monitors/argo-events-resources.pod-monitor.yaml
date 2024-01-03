@@ -7,7 +7,7 @@ metadata:
 spec:
   namespaceSelector:
     matchNames:
-    - argo-load
+    - codefresh
   selector:
     matchExpressions:
       - key: controller
@@ -18,4 +18,4 @@ spec:
         - eventbus-controller
   podMetricsEndpoints:
   - port: metrics
-      
+

@@ -11,6 +11,6 @@ spec:
       app.kubernetes.io/name: argocd-event-reporter-metrics
   namespaceSelector:
     matchNames:
-    - argo-load
+    - codefresh
   endpoints:
   - port: http-metrics
