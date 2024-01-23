@@ -11,8 +11,8 @@ spec:
     repoURL: https://github.com/oleksandr-codefresh/argocd-example-apps
     targetRevision: personal-eks
   destination:
-    name: in-cluster
-    # name: scale-prod
+    # name: in-cluster
+    name: scale-prod
     namespace: codefresh
   syncPolicy:
     automated:
