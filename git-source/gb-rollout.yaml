@@ -17,8 +17,8 @@ spec:
     name: scale-prod
     namespace: demo-ns
   syncPolicy:
-    automated:
-      prune: true
+    # automated:
+    #   prune: true
       # selfHeal: true
     syncOptions:
       - PrunePropagationPolicy=foreground
