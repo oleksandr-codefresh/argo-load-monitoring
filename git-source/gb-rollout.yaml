@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: gb-rollout
   annotations: 
-    codefresh.io/product: demo
+    codefresh.io/product: demo-product
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
